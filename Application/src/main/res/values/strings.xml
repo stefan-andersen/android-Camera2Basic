@@ -16,4 +16,12 @@
 <resources>
     <string name="picture">Picture</string>
     <string name="description_info">Info</string>
+    <string-array name="periods_array">
+        <item>3s</item>
+        <item>4s</item>
+        <item>5s</item>
+        <item>6s</item>
+        <item>10</item>
+        <item>15</item>
+    </string-array>
 </resources>

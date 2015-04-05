@@ -15,7 +15,7 @@
  limitations under the License.
 -->
 <resources>
-    <string name="app_name">Camera2Basic</string>
+    <string name="app_name">Camera2Periodic</string>
     <string name="intro_message">
         <![CDATA[
         

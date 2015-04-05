@@ -18,6 +18,7 @@ package com.example.android.camera2basic;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.Button;
 
 public class CameraActivity extends Activity {
 
@@ -25,11 +26,35 @@ public class CameraActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
+
         if (null == savedInstanceState) {
             getFragmentManager().beginTransaction()
-                    .replace(R.id.container, Camera2BasicFragment.newInstance())
+                    .replace(R.id.container, Camera2PeriodicFragment.newInstance())
                     .commit();
         }
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        Button button = (Button)findViewById(R.id.picture);
+
+        if(button != null) {
+            outState.putString("picture", button.getText().toString());
+        }
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        String pictureText = savedInstanceState.getString("picture");
+
+        if(pictureText != null) {
+            ((Button)findViewById(R.id.picture)).setText(pictureText);
+        }
+    }
 }
+
